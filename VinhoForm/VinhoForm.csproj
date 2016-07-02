@@ -93,6 +93,18 @@
       <Project>{1e9300bd-f30c-4219-8094-63110d7ae6f0}</Project>
       <Name>Applications.Services</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Data.Access.AdoNet\Data.Access.AdoNet.csproj">
+      <Project>{e2eeba0e-ef8c-4ee5-a07f-a23a979efd2d}</Project>
+      <Name>Data.Access.AdoNet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Access.EntityFramework\Data.Access.EntityFramework.csproj">
+      <Project>{48de92bd-7539-440a-a659-e544025c7d30}</Project>
+      <Name>Data.Access.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data.Access.Twitter\Data.Access.Twitter.csproj">
+      <Project>{1bbd9024-1ed0-4fa6-9a3d-66738360b307}</Project>
+      <Name>Data.Access.Twitter</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain.Model\Domain.Model.csproj">
       <Project>{5a719bd7-d6fb-4a01-adfb-bc5730b9da80}</Project>
       <Name>Domain.Model</Name>
@@ -100,6 +112,14 @@
     <ProjectReference Include="..\Infrastructure.Services\Infrastructure.Services.csproj">
       <Project>{374E4F2F-46E6-43AC-921A-DEFA742FDE66}</Project>
       <Name>Infrastructure.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MvcApplication1\Presentation.MvcApplication.csproj">
+      <Project>{930bd818-71e7-4c89-afc1-918b3f0bd4b4}</Project>
+      <Name>Presentation.MvcApplication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TestSolutionProject\TestSolutionProject.csproj">
+      <Project>{8b7a0ba0-011c-48b2-9032-ff92a1b1bbd1}</Project>
+      <Name>TestSolutionProject</Name>
     </ProjectReference>
     <ProjectReference Include="..\VinhoDados\VinhoDados.csproj">
       <Project>{BC2A5308-29BD-4158-92B2-32827D39B0F5}</Project>

@@ -13,14 +13,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using VinhoDados.Repositorio;
+using Applications.Services;
+
 
 namespace VinhoForm
 {
+
     public partial class Form1 : Form
     {
         private List<Domain.Model.Entity.Vinho> _vinhos;
         private VinhoAplicacao _aplicacao = new VinhoAplicacao(new VinhoRepositorio());
-
+        private TwitterAplicacao _twitterapp = new TwitterAplicacao();
         private int _indice;
 
         public Form1()
@@ -125,6 +128,13 @@ namespace VinhoForm
             btSalvar.Enabled = true;
 
             _aplicacao.Criar(vinho);
+
+
+            _twitterapp.Criar();
+
+            
+
+
 
 
             IniciarDados();

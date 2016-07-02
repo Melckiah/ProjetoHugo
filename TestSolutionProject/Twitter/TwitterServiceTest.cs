@@ -49,7 +49,7 @@ namespace TestSolutionProject.Twitter
         {
             var service = GetAuthenticatedService();
            
-            var status = "Testando Tweets na madrugada";
+            var status = "Testando com Bodão";
             var tweet = service.SendTweet(new SendTweetOptions { Status = status });
 
             Assert.AreEqual(service.Response.StatusCode, HttpStatusCode.OK);
