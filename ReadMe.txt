@@ -10,17 +10,14 @@
 	-> Nesta camada devem ser desenvolvidos os objetos de negócio
 	-> Objetos que representam o domínio lógico da aplicação.
 	-> Interfaces de acesso aos repositórios de dados.
-4 - Data Access Layer ou Camada de Acesso a Dados
+4 - Infrastructure Layer ou Camada de Infraestrutura ou Framework
 	-> Nesta camada devem ser desenvolvidos os objetos que controlam o 
 	acesso a dados, incluindo conexões com a base de dados e comandos.
 	-> As implentações das interfaces que definem o acesso aos bancos de 
 	dados são implementados aqui: (classes para Access, classes para 
 	SQL Server, classes para Oracle, classes para NHibernate, classes 
 	para NoSQL).
-5 - Infrastructure Layer ou Camada de Infraestrutura ou Framework
 	-> Nesta camada devem ser desenvolvidos os projetos que poderão ser 
 	utilizados por outros produtos, essa reutilização de código dá inicio
 	ao framework da empresa.
 
-Download Resharper:
-http://downloads.nddigital.com.br/downloads/hugo/Resharper.zip

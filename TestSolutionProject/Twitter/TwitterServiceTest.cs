@@ -49,7 +49,7 @@ namespace TestSolutionProject.Twitter
         {
             var service = GetAuthenticatedService();
            
-            var status = "SouDevUniplac o tweet está bombando " + DateTime.UtcNow.Ticks;
+            var status = "Testando Tweets na madrugada";
             var tweet = service.SendTweet(new SendTweetOptions { Status = status });
 
             Assert.AreEqual(service.Response.StatusCode, HttpStatusCode.OK);
@@ -61,7 +61,7 @@ namespace TestSolutionProject.Twitter
         public void Can_tweet_with_geo()
         {            
             var service = GetAuthenticatedService();
-            var status = "SouDevUniplac o tweet está bombando com localização " + DateTime.UtcNow.Ticks;
+            var status = "Teste" + DateTime.UtcNow.Ticks;
             var tweet = service.SendTweet(new SendTweetOptions { Status = status, Lat = -27.80, Long = -50.30 });
 
             Assert.AreEqual(service.Response.StatusCode, HttpStatusCode.OK);
@@ -73,11 +73,11 @@ namespace TestSolutionProject.Twitter
         public void Can_tweet_with_image()
         {
             var service = GetAuthenticatedService();
-            using (var stream = new FileStream("Problemas.jpg", FileMode.Open))
+            using (var stream = new FileStream("siuniplac.jpg", FileMode.Open))
             {
                 var tweet = service.SendTweetWithMedia(new SendTweetWithMediaOptions
                 {
-                    Status = "SouDevUniplac o tweet está bombando com imagem " + DateTime.UtcNow.Ticks,
+                    Status = "Teste" + DateTime.UtcNow.Ticks,
                     Images = new Dictionary<string, Stream> { { "test", stream } }
                 });
                 Assert.IsNotNull(tweet);
@@ -91,6 +91,7 @@ namespace TestSolutionProject.Twitter
         {
             var service = GetAuthenticatedService();
             var tweets = service.ListTweetsOnHomeTimeline(new ListTweetsOnHomeTimelineOptions());
+            
 
             foreach (var tweet in tweets)
             {
@@ -120,21 +121,31 @@ namespace TestSolutionProject.Twitter
             }
         }
 
-        [TestMethod]  
+        [TestMethod]
+        public void Can_get_tweet_mentions()
+        {
+            var service = GetAuthenticatedService();
+            var tweets = service.ListTweetsMentioningMe(new ListTweetsMentioningMeOptions());
+            Assert.IsNotNull(tweets);
+        }
+
+        /// <summary>
+        /// Esse metodo de teste deve ser rodado somente um unica vez
+        /// o objetivo dele é autorizar o aplicativo na conta do twitter 
+        /// </summary>
+
+        [TestMethod]
         [Ignore]
         public void Can_exchange_for_access_token()
         {
             var service = new TwitterService(_consumerKey, _consumerSecret);
             var requestToken = service.GetRequestToken();
 
-            Assert.AreEqual(service.Response.StatusCode, HttpStatusCode.OK);
-            Assert.IsNotNull(requestToken);
-
             var uri = service.GetAuthorizationUri(requestToken);
             Process.Start(uri.ToString());
 
             Console.WriteLine("Press the any key when you have confirmation of your code transmission.");
-            var verifier = "1234567"; // <-- Debugger breakpoint and edit with the actual verifier
+            var verifier = "3828390"; // <-- Debugger breakpoint and edit with the actual verifier
 
             OAuthAccessToken accessToken = service.GetAccessToken(requestToken, verifier);
             Assert.AreEqual(service.Response.StatusCode, HttpStatusCode.OK);
